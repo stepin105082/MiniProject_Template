@@ -6,23 +6,16 @@ BUILD = build
 
 # All source code files
 SRC = project_main.c\
-src/manage.c\
-unity/unity.c\
-test/test_manage.c
+manage.c\
 
 # All test source files
-TEST_SRC = src/manage.c\
-test/test_manage.c\
-unity/unity.c\
-project_main.c
-
-
-# All include folders with header files
-INC	= -Iinc\
--Iunity\
--Itest
+TEST_SRC = manage.c\
+test_manage.c
 
 TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).out
+
+# All include folders with header files
+INC	= -Iinc
 
 PROJECT_OUTPUT = $(BUILD)/$(PROJECT_NAME).out
 
@@ -36,7 +29,7 @@ $(PROJECT_NAME):all
 .PHONY: run clean test  doc all
 
 all: $(SRC) $(BUILD)
-	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT)
+	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT).out
 
 # Call `make run` to run the application
 run:$(PROJECT_NAME)
@@ -48,7 +41,7 @@ doc:
 
 # Build and run the unit tests
 test:$(BUILD)
-	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) -unity
+	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) -lcunit
 	./$(TEST_OUTPUT)
 
 # Remove all the built files, invoke by `make clean`
