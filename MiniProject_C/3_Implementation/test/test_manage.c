@@ -23,7 +23,7 @@ int main() {
 
 
   /* Add your test functions in this format for testing*/
-  CU_add_test(suite, "phone", test_phone());
+  CU_add_test(suite, "phone", test_phone);
  /* CU_add_test(suite, "temperature", test_temperature_1());
   CU_add_test(suite, "temperature", test_temperature_2());
   CU_add_test(suite, "sanitize", test_sanitize_check());*/
