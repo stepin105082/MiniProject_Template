@@ -72,7 +72,7 @@ int LoginCheck(struct Employee e)          //Employee login function
         }
         printf("\n\n\t Invalid login, Press any key to try again...");
 
-        getch();
+        //getch();
         system("cls");                  //used to clr screen
         a++;
     }while (a<=2);
