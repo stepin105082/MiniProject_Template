@@ -24,7 +24,7 @@ void options();
  * \return 1 if login is successful
  *
  */
-int LoginCheck(struct Employee e)          //Employee login function
+/*int LoginCheck(struct Employee e)          //Employee login function
 {
     FILE *fptr;
     int a=0;
@@ -79,7 +79,7 @@ int LoginCheck(struct Employee e)          //Employee login function
 
     fclose(fptr);
 
-}
+}*/
 
 
 /**< function to go back to options in between entering new customer details */
