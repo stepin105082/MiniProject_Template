@@ -4,7 +4,7 @@
 *@brief Main file for Customer Management System
 */
 #include "manage.h"
-#include "test_manage.h"
+
 
 /** @brief count value gives the no:of persons inside the shop */
 static int count=0;
