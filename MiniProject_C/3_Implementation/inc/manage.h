@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include <conio.h>
+
 
 struct Employee       //Employee struct
 {
