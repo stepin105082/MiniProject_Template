@@ -1,21 +1,28 @@
 # Name of the project
-PROJECT_NAME = Calculator
+PROJECT_NAME = Customer
 
 # Output directory
 BUILD = build
 
 # All source code files
 SRC = project_main.c\
-src/calculator_operations.c\
+src/manage.c\
+unity/unity.c\
+test/test_manage.c
 
 # All test source files
-TEST_SRC = src/calculator_operations.c\
-test/test_calculator_operations.c
+TEST_SRC = src/manage.c\
+test/test_manage.c\
+unity/unity.c\
+project_main.c
 
-TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).out
 
 # All include folders with header files
-INC	= -Iinc
+INC	= -Iinc\
+-Iunity\
+-Itest
+
+TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).out
 
 PROJECT_OUTPUT = $(BUILD)/$(PROJECT_NAME).out
 
@@ -29,7 +36,7 @@ $(PROJECT_NAME):all
 .PHONY: run clean test  doc all
 
 all: $(SRC) $(BUILD)
-	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT).out
+	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT)
 
 # Call `make run` to run the application
 run:$(PROJECT_NAME)
@@ -41,7 +48,7 @@ doc:
 
 # Build and run the unit tests
 test:$(BUILD)
-	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) -lcunit
+	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) -unity
 	./$(TEST_OUTPUT)
 
 # Remove all the built files, invoke by `make clean`
