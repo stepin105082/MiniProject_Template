@@ -8,9 +8,9 @@
 
 /* Prototypes for all the test functions */
 void test_phone(void);
-void test_temperature_1(void);
+/*void test_temperature_1(void);
 void test_temperature_2(void);
-void test_sanitize_check(void);
+void test_sanitize_check(void);*/
 
 /* Start of the application test */
 int main() {
@@ -24,9 +24,9 @@ int main() {
 
   /* Add your test functions in this format for testing*/
   CU_add_test(suite, "phone", test_phone());
-  CU_add_test(suite, "temperature", test_temperature_1());
+ /* CU_add_test(suite, "temperature", test_temperature_1());
   CU_add_test(suite, "temperature", test_temperature_2());
-  CU_add_test(suite, "sanitize", test_sanitize_check());
+  CU_add_test(suite, "sanitize", test_sanitize_check());*/
 
 
 /* Note: Do not edit START*/
