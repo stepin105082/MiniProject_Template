@@ -12,11 +12,11 @@
 #include <string.h>
 
 
-struct Employee       //Employee struct
+/*struct Employee       //Employee struct
 {
     char user[20];
     char pass[20];
-};
+};*/
 
 /** Customer struct including name, phone, date and time
 */
