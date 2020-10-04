@@ -9,7 +9,7 @@ SRC = project_main.c\
 src/manage.c\
 
 # All test source files
-TEST_SRC = manage.c\
+TEST_SRC = src/manage.c\
 test/test_manage.c
 
 TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).out
