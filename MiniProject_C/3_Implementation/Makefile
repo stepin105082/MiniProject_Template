@@ -6,11 +6,11 @@ BUILD = build
 
 # All source code files
 SRC = project_main.c\
-manage.c\
+src/manage.c\
 
 # All test source files
 TEST_SRC = manage.c\
-test_manage.c
+test/test_manage.c
 
 TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).out
 
