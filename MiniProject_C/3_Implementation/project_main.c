@@ -195,8 +195,8 @@ void new_customer()
     {
         struct Customer c;
         printf("Enter name:");
-        getchar();
-        gets(c.name);
+        //getchar();
+        scanf("%s",&c.name);
         printf("Enter phone number:");
         scanf("%s",&c.phone);
         while(!phone_check(c))
@@ -256,7 +256,7 @@ void view()
 
 int main()
 {
-	test_main();
+	//test_main();
 
 	struct Employee e={0};
     int x;
