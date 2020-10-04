@@ -257,11 +257,6 @@ void view()
 int main()
 {
 	//test_main();
-
-	struct Employee e={0};
-    int x;
-    x=LoginCheck(e);
-    if(x==1)
         options();
 
     return 0;
