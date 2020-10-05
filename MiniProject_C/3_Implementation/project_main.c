@@ -1,4 +1,3 @@
-
 /**
 * project_main.c
 *@brief Main file for Customer Management System
@@ -7,8 +6,11 @@
 
 /** @brief count value gives the no:of persons inside the shop */
 static int count=0;
-
+static int max_count=0;   
 static int option_flag=0;
+static int customer_flag=0;
+static char s_name[30];
+static int login_flag=0;
 
 void new_customer();
 void view();
@@ -16,6 +18,32 @@ void count_check();
 void anyone_left();
 void customer_mgmt();
 void options();
+
+void write_emp_details()
+{
+    struct Employee e;
+    int n,i=1;
+    char ch[40];
+    FILE *fptr;
+    fptr=fopen("emp_cred.txt","w");
+    printf("\n\tEnter number of employees : ");
+    scanf("%d",&n);
+    getchar();
+    while(i<=n)
+    {
+    system("cls");
+    printf("\n\tEnter employee %d username: ",i);
+    scanf("%s",&e.user);///
+    printf("\n\tEnter new password: ");
+    scanf("%s",&e.pass);///  
+    if(i==1)
+        fprintf(fptr," %s%s\n",e.user,e.pass); // a space in first index is added (dont know why!)
+    else
+        fprintf(fptr,"%s%s\n",e.user,e.pass);
+    i++;
+    }
+    fclose(fptr);
+}
 
 /** @brief function to login using user-name and password for the employee
  *
@@ -31,7 +59,9 @@ int LoginCheck(struct Employee e)          //Employee login function
     FILE *fptr;
     int f=0;
     do          // Finite attempts to login (3)...
-    {
+    {   
+        if(login_flag==1)
+            getchar();
         printf("\n\t\t\tUsername : ");
         scanf("%s",&e.user);
         printf("\t\t\tPassword : ");
@@ -55,11 +85,45 @@ int LoginCheck(struct Employee e)          //Employee login function
 
         f++;
     }while (f<=2);
+    
+    fclose(fptr);
+    return 0;
+}
 
+struct shop
+{
+    int shop_count;
+    char shop_name[30];
+};
 
+void write_shop_details()
+{   
+    system("cls");
+    struct shop s;
+    printf("\n\n\t\tEnter shop name :");
+    //getchar();
+    scanf("%[^\n]%*c",&s.shop_name);////
+    printf("\n\t\tEnter allowbale customer count :");
+    scanf("%d",&s.shop_count);
+    FILE *fptr;
+    fptr=fopen("shop_details.txt","w");
+    fprintf(fptr," %d\n%s\n",s.shop_count,s.shop_name);
     fclose(fptr);
 }
 
+
+void view_shop_details()
+{   
+    FILE *fp;
+    fp=fopen("shop_details.txt","r+");
+    if(fp==NULL)
+        printf("\n Failed");
+    fscanf(fp,"%d\n",&max_count);
+    fgets(s_name,30,fp);
+    fclose(fp);
+    //printf("max count: %d\nShop name: ",max_count);
+    //puts(s_name);   
+}
 
 /**< function to go back to options in between entering new customer details */
 
@@ -83,16 +147,17 @@ int go_back()
 void count_check()
 {
     anyone_left();
-    if (count<5)
+    if (count<max_count)
     {
-        if(option_flag==0)
+        if(option_flag==0 && customer_flag==1)
         {
             printf("You can enter \n");
             count++;
+            customer_flag=0;
         }
         else
             option_flag=0;
-        printf("Count %d\n", count);
+        //printf("Count %d\n", count);
         int f=go_back();
         if(f==1)
             options();
@@ -102,7 +167,7 @@ void count_check()
     else
     {
         printf("Entry restricted\n");
-        while(count==5)
+        while(count==max_count)
         {
             count_check();
         }
@@ -121,7 +186,7 @@ void anyone_left()
         if(ch=='Y'||ch=='y')
             if(count!=0)
                 count--;
-        printf("count %d\n", count);
+       // printf("count %d\n", count);
     }
 }
 
@@ -130,6 +195,8 @@ void options()
 {   system("cls");
     int n;
     option_flag=1;
+    printf("\n\t\t   Welcome to ");
+    puts(s_name);
     printf("\n\t\t\t Select option ");
     printf("\n\n\t 1.New Customer details entry");
     printf("\n\t 2.View Customer details");
@@ -189,10 +256,11 @@ void new_customer()
         if (fptr == NULL)
         {
             fprintf(stderr, "\nError in opening file\n");
+            exit(1);
         }
 
         fprintf(fptr,"%s%s,%s,%s%s","",c.date,c.name,c.phone,"\n");
-
+        customer_flag=1;
         fclose(fptr);
         if(!temp_check())
             customer_mgmt();
@@ -233,12 +301,33 @@ void view()
 
 int main()
 {
-	struct Employee e={0};
-    int x;
-    x=LoginCheck(e);
-    if(x==1)
+    system("cls");
+
+    FILE *f;
+    f=fopen("emp_cred.txt","r");
+    if(f==NULL)
+        write_emp_details();
+    fclose(f);
+
+    FILE *fp;
+    fp=fopen("shop_details.txt","r");
+    if(fp==NULL)
+    {
+        write_shop_details();
+        login_flag=1;
+    }
+    fclose(fp);
+
+    struct Employee e;
+    system("cls");
+    int l=LoginCheck(e);
+    
+    if(l)  //login Successful
+    {
+        view_shop_details();
         options();
-
-    return 0;
+    }
+    else
+        printf("\nLogin Failed !");
+    return 0;  
 }
-
