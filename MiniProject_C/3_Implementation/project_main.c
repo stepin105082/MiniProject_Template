@@ -293,7 +293,7 @@ int main()
     }
     fclose(fp);
      struct Employee e;
-     int f=0;
+     int x=0;
     do                                     // Finite attempts to login (3)...
     {   
      if(login_flag==1)
@@ -311,7 +311,7 @@ int main()
     }
     else
         printf("\nLogin Failed !");
-	f++;
-    }while(f<3);
+	x++;
+    }while(x<3);
     return 0;  
 }
