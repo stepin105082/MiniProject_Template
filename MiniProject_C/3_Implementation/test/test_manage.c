@@ -9,8 +9,8 @@
 /* Prototypes for all the test functions */
 void test_phone(void);
 void test_temperature_1(void);
-/*void test_temperature_2(void);
-void test_sanitize_check(void);*/
+void test_temperature_2(void);
+void test_sanitize_check(void);
 
 /* Start of the application test */
 int main() {
@@ -25,8 +25,7 @@ int main() {
   /* Add your test functions in this format for testing*/
   CU_add_test(suite, "phone", test_phone);
   CU_add_test(suite, "temperature", test_temperature_1);
-  /*CU_add_test(suite, "temperature", test_temperature_2());
-  CU_add_test(suite, "sanitize", test_sanitize_check());*/
+  CU_add_test(suite, "sanitize", test_sanitize_check);
 
 
 /* Note: Do not edit START*/
@@ -55,22 +54,8 @@ void test_temperature_1(void) {
   CU_ASSERT(1 == temp_check());
   CU_ASSERT(1 == temp_check());
 }
-/*
-void test_subtract(void) {
-  CU_ASSERT(-3 == subtract(0, 3));
 
-  CU_ASSERT(1 == subtract(1000, 900));
+void test_sanitize_check(void) {
+  CU_ASSERT(1 == sanitize());
+  CU_ASSERT(1 == sanitize());
 }
-
-void test_multiply(void) {
-  CU_ASSERT(0 == multiply(1, 0));
-
-  CU_ASSERT(2 == multiply(2, 5));
-}
-
-void test_divide(void) {
-  CU_ASSERT(0 == divide(1, 0));
-
-  CU_ASSERT(3 == divide(2, 2));
-}
-*/
