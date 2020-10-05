@@ -52,16 +52,6 @@ void write_emp_details()
 int LoginCheck(struct Employee e)          //Employee login function
 {
     FILE *fptr;
-    int f=0;
-    do          // Finite attempts to login (3)...
-    {   
-        if(login_flag==1)
-            getchar();
-        printf("\n\t\t\tUsername : ");
-        scanf("%s",&e.user);
-        printf("\t\t\tPassword : ");
-        scanf("%s",&e.pass);
-
 	char ch,buffer[40];
         strcat(e.user,e.pass);
         fptr=fopen("emp_cred.txt","r");
@@ -74,13 +64,7 @@ int LoginCheck(struct Employee e)          //Employee login function
             fclose(fptr);
             return 1;
         }
-        }
-        printf("\n\n\t\t\t Invalid login\n");
-        system("\t\tpause");
-
-        f++;
-    }while (f<=2);
-    
+	}    
     fclose(fptr);
     return 0;
 }
@@ -308,11 +292,18 @@ int main()
         login_flag=1;
     }
     fclose(fp);
-
-    struct Employee e;
+     struct Employee e;
+     int f=0;
+    do                                     // Finite attempts to login (3)...
+    {   
+     if(login_flag==1)
+          getchar();
+    printf("\n\t\t\tUsername : ");
+    scanf("%s",&e.user);
+    printf("\t\t\tPassword : ");
+    scanf("%s",&e.pass);
     system("cls");
     int l=LoginCheck(e);
-    
     if(l)  //login Successful
     {
         view_shop_details();
@@ -320,5 +311,7 @@ int main()
     }
     else
         printf("\nLogin Failed !");
+	f++;
+    }while(f<3);
     return 0;  
 }
