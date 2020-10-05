@@ -4,7 +4,6 @@
 */
 #include "manage.h"
 
-/** @brief count value gives the no:of persons inside the shop */
 static int count=0;
 static int max_count=0;   
 static int option_flag=0;
@@ -19,6 +18,7 @@ void anyone_left();
 void customer_mgmt();
 void options();
 
+/** @brief Function to enter employee details*/
 void write_emp_details()
 {
     struct Employee e;
@@ -46,14 +46,9 @@ void write_emp_details()
 }
 
 /** @brief function to login using user-name and password for the employee
- *
  * @param[in] object of employee struct
- *
- * \return 1 if login is successful
- *
+ * @return 1 if login is successful
  */
-
-
 int LoginCheck(struct Employee e)          //Employee login function
 {
     FILE *fptr;
@@ -90,12 +85,8 @@ int LoginCheck(struct Employee e)          //Employee login function
     return 0;
 }
 
-struct shop
-{
-    int shop_count;
-    char shop_name[30];
-};
 
+/**@brief function to enter shop details like name and maximum count of allowable persons*/
 void write_shop_details()
 {   
     system("cls");
