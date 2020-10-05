@@ -1,2 +1,2 @@
-@mainpage Calculator Application by Bharath G
-@subpage calculator_operations.h
+@mainpage Customer Data Management System during Covid-19
+@subpage manage.h
