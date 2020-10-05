@@ -5,9 +5,9 @@
 */
 #include "manage.h"
 
-
 /** @brief count value gives the no:of persons inside the shop */
 static int count=0;
+
 static int option_flag=0;
 
 void new_customer();
@@ -17,69 +17,48 @@ void anyone_left();
 void customer_mgmt();
 void options();
 
-/** @brief function to login using username and password for the employee
+/** @brief function to login using user-name and password for the employee
  *
- * \param
- * \param
+ * @param[in] object of employee struct
+ *
  * \return 1 if login is successful
  *
  */
-/*int LoginCheck(struct Employee e)          //Employee login function
+
+
+int LoginCheck(struct Employee e)          //Employee login function
 {
     FILE *fptr;
-    int a=0;
-    do                                      // Finite attempts to login (3)...
+    int f=0;
+    do          // Finite attempts to login (3)...
     {
-        int i=0;
-        char c=' ';
-        printf("\n\t\tCUSTOMER DATA MANAGEMENT DURING COVID-19\n\n");
         printf("\n\t\t\tUsername : ");
-        gets(e.user);
+        scanf("%s",&e.user);
         printf("\t\t\tPassword : ");
-        while(i<20)
-	    {
-            e.pass[i]=getch();
-            c=e.pass[i];
-            if(c=='\r')               // Checking if enter is pressed
-                break;
-            else if (c=='\b' && i>=1 ) // checking if backspace is pressed.
-            {
-                printf("\b\b");
-                --i;
-            }
-            else
-            {
-                printf("*");
-                i++;
-            }
-	    }
-
-         e.pass[i]='\0';
+        scanf("%s",&e.pass);
 
 	char ch,buffer[40];
         strcat(e.user,e.pass);
         fptr=fopen("emp_cred.txt","r");
-        while((ch = fgetc(fptr)) != EOF)
+        while(ch = fgetc(fptr) != EOF)
         {
         fscanf(fptr, "%[^\n]", buffer);
         if(strcmp(e.user,buffer)==0)
         {
             printf("\n\n\n\t\t\tLogin Successful");
             fclose(fptr);
-            //a=1;
             return 1;
         }
         }
-        printf("\n\n\t Invalid login, Press any key to try again...");
+        printf("\n\n\t\t\t Invalid login\n");
+        system("\t\tpause");
 
-        //getch();
-        system("cls");                  //used to clr screen
-        a++;
-    }while (a<=2);
+        f++;
+    }while (f<=2);
+
 
     fclose(fptr);
-
-}*/
+}
 
 
 /**< function to go back to options in between entering new customer details */
@@ -195,8 +174,8 @@ void new_customer()
     {
         struct Customer c;
         printf("Enter name:");
-        //getchar();
-        scanf("%s",&c.name);
+        getchar();
+        gets(c.name);
         printf("Enter phone number:");
         scanf("%s",&c.phone);
         while(!phone_check(c))
@@ -240,9 +219,7 @@ void view()
         printf("%s\n",buffer);
     }
     fclose(fptr);
-    printf("Press any key to go back.....");
-    getchar();
-    system("cls");
+    system("pause");
     options();
 }
 
@@ -256,7 +233,10 @@ void view()
 
 int main()
 {
-	//test_main();
+	struct Employee e={0};
+    int x;
+    x=LoginCheck(e);
+    if(x==1)
         options();
 
     return 0;
