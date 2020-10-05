@@ -70,6 +70,4 @@ int sanitize();
 
 int temp_check();
 
-
-
 #endif  /* #define __MANAGE_H__ */
