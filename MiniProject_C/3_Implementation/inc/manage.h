@@ -11,8 +11,16 @@
 #include <time.h>
 #include <string.h>
 
+/** @brief shop struct that contains the name of the shop and the maximum no: of allowable persons*/
+struct shop
+{
+    int shop_count;
+    char shop_name[30];
+};
 
-struct Employee       //Employee struct
+
+/** @brief Employee struct with username and password */
+struct Employee       
 {
     char user[20];
     char pass[20];
