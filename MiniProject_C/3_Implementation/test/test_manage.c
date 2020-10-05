@@ -8,8 +8,8 @@
 
 /* Prototypes for all the test functions */
 void test_phone(void);
-/*void test_temperature_1(void);
-void test_temperature_2(void);
+void test_temperature_1(void);
+/*void test_temperature_2(void);
 void test_sanitize_check(void);*/
 
 /* Start of the application test */
