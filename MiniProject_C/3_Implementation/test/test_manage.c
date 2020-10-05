@@ -24,8 +24,8 @@ int main() {
 
   /* Add your test functions in this format for testing*/
   CU_add_test(suite, "phone", test_phone);
- /* CU_add_test(suite, "temperature", test_temperature_1());
-  CU_add_test(suite, "temperature", test_temperature_2());
+  CU_add_test(suite, "temperature", test_temperature_1);
+  /*CU_add_test(suite, "temperature", test_temperature_2());
   CU_add_test(suite, "sanitize", test_sanitize_check());*/
 
 
@@ -50,6 +50,10 @@ struct Customer d={.phone="123456"};
 void test_phone(void) {
   CU_ASSERT(1 == phone_check(c));
   CU_ASSERT(0 == phone_check(d));
+}
+void test_temperature_1(void) {
+  CU_ASSERT(1 == temp_check());
+  CU_ASSERT(1 == temp_check());
 }
 /*
 void test_subtract(void) {
