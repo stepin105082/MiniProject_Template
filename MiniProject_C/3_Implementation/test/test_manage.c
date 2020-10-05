@@ -3,13 +3,12 @@
 
 /* Modify these two lines according to the project */
 #include <manage.h>
-#define PROJECT_NAME    "Customer_Management"
+#define PROJECT_NAME    "Customer_Data_Management_System_Covid-19"
 
 
 /* Prototypes for all the test functions */
 void test_phone(void);
 void test_temperature_1(void);
-void test_temperature_2(void);
 void test_sanitize_check(void);
 
 /* Start of the application test */
