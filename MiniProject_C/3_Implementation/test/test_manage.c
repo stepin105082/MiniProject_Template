@@ -43,12 +43,10 @@ int main() {
 }
 
 
-
+struct Employee e2={"mec","456"};
+struct Employee e1={"mec","123"};
 /* Write all the test functions */
-Employee e1.user="mec";
-Employee e1.pass="123";
-Employee e2.user="abc";
-Employee e2.pass="123";
+
 void test_login(void) {
   CU_ASSERT(1 == LoginCheck(e1));
   CU_ASSERT(0 == LoginCheck(e2));
