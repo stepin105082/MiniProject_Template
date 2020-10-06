@@ -40,7 +40,7 @@ struct Customer
  * @param[in] object of employee struct
  * @return 1 if login is successful
  */
-int LoginCheck(struct Employee e);
+int LoginCheck(char user[], char pass[]);
 
 /**
  * @brief function to provide the local time and date
