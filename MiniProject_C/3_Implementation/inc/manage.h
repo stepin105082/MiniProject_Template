@@ -22,8 +22,8 @@ struct shop
 /** @brief Employee struct with username and password */
 struct Employee       
 {
-    char user[20];
-    char pass[20];
+    char user[10];
+    char pass[6];
 };
 
 /** Customer struct including name, phone, date and time
