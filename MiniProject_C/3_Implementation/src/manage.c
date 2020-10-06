@@ -6,6 +6,27 @@
 
 #include "manage.h"
 
+int LoginCheck(struct Employee e)          //Employee login function
+{
+    FILE *fptr;
+	char ch,buffer[40];
+        strcat(e.user,e.pass);
+        fptr=fopen("emp_cred.txt","r");
+        while(ch = fgetc(fptr) != EOF)
+        {
+        fscanf(fptr, "%[^\n]", buffer);
+        if(strcmp(e.user,buffer)==0)
+        {
+            printf("\n\n\n\t\t\tLogin Successful");
+            fclose(fptr);
+            return 1;
+        }
+	}    
+    fclose(fptr);
+    return 0;
+}
+
+
 char* local_time()
 {
     struct tm* local;
@@ -23,7 +44,7 @@ int phone_check(struct Customer c)  // to check the digits in the phone number
     return 1;
 }
 
-int sanitize()
+int sanitize()                  //sanitization check
 {
     int s=rand() % 2;
     //printf("Sanitize %d\n",s);
@@ -34,7 +55,7 @@ int sanitize()
 
 }
 
-int temp_check()
+int temp_check()                    //temperature check
 {
     int temp=(rand() % 12)+30;
    // printf("Temp %d\n",temp);
@@ -46,7 +67,7 @@ int temp_check()
     }
     else
     {
-        printf("\n Temperature is high !.. Kindly don't enter the shop.");
+        printf("\n Temperature is high !.. Kindly don't enter the shop.\n");
         return 0;
     }
 
