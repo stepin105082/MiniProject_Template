@@ -35,11 +35,6 @@ struct Customer
     char *date;
 };
 
-struct Employee e1={.user="mec",.pass="123"};
-struct Employee e2={.user="abc",.pass="456"};
-
-struct Customer c={.phone="1234567890"};
-struct Customer d={.phone="123456"};
 
 /** @brief function to login using user-name and password for the employee
  * @param[in] object of employee struct
