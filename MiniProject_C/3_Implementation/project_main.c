@@ -277,7 +277,7 @@ int main()
     printf("\t\t\tPassword : ");
     scanf("%s",&e.pass);
     system("cls");
-    int l=LoginCheck(e);
+    int l=LoginCheck(e.user,e.pass);
     if(l)  //login Successful
     {
         view_shop_details();
