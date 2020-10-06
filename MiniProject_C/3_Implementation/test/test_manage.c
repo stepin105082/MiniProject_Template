@@ -42,18 +42,17 @@ int main() {
   return 0;
 }
 
-/*struct Employee e1={.user="mec",.pass="123"};
-struct Employee e2={.user="abc",.pass="456"};
 
-struct Customer c={.phone="1234567890"};
-struct Customer d={.phone="123456"};*/
 
 /* Write all the test functions */
+struct Employee e1={.user="mec",.pass="123"};
+struct Employee e2={.user="abc",.pass="456"};
 void test_login(void) {
   CU_ASSERT(1 == LoginCheck(e1));
   CU_ASSERT(0 == LoginCheck(e2));
 }
-
+struct Customer c={.phone="1234567890"};
+struct Customer d={.phone="123456"};
 void test_phone(void) {
   CU_ASSERT(1 == phone_check(c));
   CU_ASSERT(0 == phone_check(d));
