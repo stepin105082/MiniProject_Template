@@ -44,7 +44,9 @@ int main() {
 
 
 //struct Employee e2={"mec","456"};
-struct Employee e1={"mec","123"};
+struct Employee e1={0};
+e1.user="mec";
+e1.pass="123";
 
 /* Write all the test functions */
 
