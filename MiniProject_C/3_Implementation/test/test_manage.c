@@ -59,7 +59,7 @@ void test_phone(void) {
   CU_ASSERT(0 == phone_check(d));
 }
 
-void test_temperature_1(void) {
+void test_temperature(void) {
   CU_ASSERT(1 == temp_check());
   CU_ASSERT(1 == temp_check());
 }
