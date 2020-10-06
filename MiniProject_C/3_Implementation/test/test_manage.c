@@ -42,11 +42,11 @@ int main() {
   return 0;
 }
 
-struct Employee e1={.user="mec",.pass="123"};
+/*struct Employee e1={.user="mec",.pass="123"};
 struct Employee e2={.user="abc",.pass="456"};
 
 struct Customer c={.phone="1234567890"};
-struct Customer d={.phone="123456"};
+struct Customer d={.phone="123456"};*/
 
 /* Write all the test functions */
 void test_login(void) {
