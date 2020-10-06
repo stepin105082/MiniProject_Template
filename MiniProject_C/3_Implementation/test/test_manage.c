@@ -45,10 +45,10 @@ int main() {
 
 
 /* Write all the test functions */
-e1.user="mec";
-e1.pass="123";
-e2.user="abc";
-e2.pass="123";
+Employee e1.user="mec";
+Employee e1.pass="123";
+Employee e2.user="abc";
+Employee e2.pass="123";
 void test_login(void) {
   CU_ASSERT(1 == LoginCheck(e1));
   CU_ASSERT(0 == LoginCheck(e2));
