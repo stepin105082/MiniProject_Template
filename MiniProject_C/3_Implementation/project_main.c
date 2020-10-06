@@ -267,10 +267,9 @@ int main()
         login_flag=1;
     }
     fclose(fp);
-     struct Employee e;
      int x=0;
     do                                     // Finite attempts to login (3)...
-    {   
+    {   struct Employee e;
      if(login_flag==1)
           getchar();
     printf("\n\t\t\tUsername : ");
