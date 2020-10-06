@@ -45,31 +45,6 @@ void write_emp_details()
     fclose(fptr);
 }
 
-/** @brief function to login using user-name and password for the employee
- * @param[in] object of employee struct
- * @return 1 if login is successful
- */
-int LoginCheck(struct Employee e)          //Employee login function
-{
-    FILE *fptr;
-	char ch,buffer[40];
-        strcat(e.user,e.pass);
-        fptr=fopen("emp_cred.txt","r");
-        while(ch = fgetc(fptr) != EOF)
-        {
-        fscanf(fptr, "%[^\n]", buffer);
-        if(strcmp(e.user,buffer)==0)
-        {
-            printf("\n\n\n\t\t\tLogin Successful");
-            fclose(fptr);
-            return 1;
-        }
-	}    
-    fclose(fptr);
-    return 0;
-}
-
-
 /**@brief function to enter shop details like name and maximum count of allowable persons*/
 void write_shop_details()
 {   
