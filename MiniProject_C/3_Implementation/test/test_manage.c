@@ -7,7 +7,7 @@
 
 
 /* Prototypes for all the test functions */
-void test_login(void);
+
 void test_phone(void);
 void test_temperature(void);
 void test_sanitize_check(void);
@@ -23,7 +23,7 @@ int main() {
 
 
   /* Add your test functions in this format for testing*/
-  CU_add_test(suite, "login", test_login);
+  
   CU_add_test(suite, "phone", test_phone);
   CU_add_test(suite, "temperature", test_temperature);
   CU_add_test(suite, "sanitize", test_sanitize_check);
@@ -43,20 +43,7 @@ int main() {
 }
 
 
-//struct Employee e2={"mec","456"};
-struct Employee e1={0};
-e1.user="mec";
-e1.pass="123";
-
 /* Write all the test functions */
-
-  void test_login(void) {
-  //struct Employee e1={"mec","123"};
-  CU_ASSERT(1 == LoginCheck(e1.user,e1.pass));
-  //CU_ASSERT(0 == LoginCheck(e2));
-}
-
-
 
 struct Customer c={.phone="1234567890"};
 struct Customer d={.phone="123456"};
