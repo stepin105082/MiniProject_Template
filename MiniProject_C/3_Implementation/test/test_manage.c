@@ -44,7 +44,10 @@ int main() {
 
 
 //struct Employee e2={"mec","456"};
-struct Employee e1={"mec","123"};
+struct Employee e1;
+struct Employee *e=&e1;
+(*e).user="mec";
+(*e).pass="123";
 /* Write all the test functions */
 
   void test_login(void) {
