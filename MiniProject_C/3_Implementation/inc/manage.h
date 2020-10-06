@@ -35,6 +35,11 @@ struct Customer
     char *date;
 };
 
+/** @brief function to login using user-name and password for the employee
+ * @param[in] object of employee struct
+ * @return 1 if login is successful
+ */
+int LoginCheck(struct Employee e);
 
 /**
  * @brief function to provide the local time and date
