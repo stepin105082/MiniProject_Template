@@ -7,8 +7,9 @@
 
 
 /* Prototypes for all the test functions */
+void test_login(void);
 void test_phone(void);
-void test_temperature_1(void);
+void test_temperature(void);
 void test_sanitize_check(void);
 
 /* Start of the application test */
@@ -22,8 +23,9 @@ int main() {
 
 
   /* Add your test functions in this format for testing*/
+  CU_add_test(suite, "login", test_login);
   CU_add_test(suite, "phone", test_phone);
-  CU_add_test(suite, "temperature", test_temperature_1);
+  CU_add_test(suite, "temperature", test_temperature);
   CU_add_test(suite, "sanitize", test_sanitize_check);
 
 
@@ -40,15 +42,23 @@ int main() {
   return 0;
 }
 
-struct Customer c={.phone="1234567890"};
+struct Employee e1={.user="mec",.pass="123"};
+struct Employee e2={.user="abc",.pass="456"};
 
+struct Customer c={.phone="1234567890"};
 struct Customer d={.phone="123456"};
 
 /* Write all the test functions */
+void test_login(void) {
+  CU_ASSERT(1 == LoginCheck(e1));
+  CU_ASSERT(0 == LoginCheck(e2));
+}
+
 void test_phone(void) {
   CU_ASSERT(1 == phone_check(c));
   CU_ASSERT(0 == phone_check(d));
 }
+
 void test_temperature_1(void) {
   CU_ASSERT(1 == temp_check());
   CU_ASSERT(1 == temp_check());
