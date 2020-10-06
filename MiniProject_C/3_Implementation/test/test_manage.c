@@ -44,10 +44,11 @@ int main() {
 
 
 //struct Employee e2={"mec","456"};
-struct Employee e1={"mec","123"};
+//struct Employee e1={"mec","123"};
 /* Write all the test functions */
 
 void test_login(void) {
+  struct Employee e1={"mec","123"};
   CU_ASSERT(1 == LoginCheck(e1));
   //CU_ASSERT(0 == LoginCheck(e2));
 }
