@@ -35,8 +35,7 @@ struct Customer
     char *date;
 };
 
-struct Employee e2;
-struct Employee e1;
+
 /** @brief function to login using user-name and password for the employee
  * @param[in] object of employee struct
  * @return 1 if login is successful
