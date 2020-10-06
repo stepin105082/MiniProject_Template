@@ -51,8 +51,13 @@ void test_login(void) {
   CU_ASSERT(1 == LoginCheck(e1));
   CU_ASSERT(0 == LoginCheck(e2));
 }
+struct Employee e2={NULL};
+struct Employee e1={NULL};
+
+
 struct Customer c={.phone="1234567890"};
 struct Customer d={.phone="123456"};
+
 void test_phone(void) {
   CU_ASSERT(1 == phone_check(c));
   CU_ASSERT(0 == phone_check(d));
