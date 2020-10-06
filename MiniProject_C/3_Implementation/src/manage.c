@@ -6,16 +6,16 @@
 
 #include "manage.h"
 
-int LoginCheck(struct Employee e)          //Employee login function
+int LoginCheck(char user[], char pass[])          //Employee login function
 {
     FILE *fptr;
 	char ch,buffer[40];
-        strcat(e.user,e.pass);
+        strcat(user,pass);
         fptr=fopen("emp_cred.txt","r");
         while(ch = fgetc(fptr) != EOF)
         {
         fscanf(fptr, "%[^\n]", buffer);
-        if(strcmp(e.user,buffer)==0)
+        if(strcmp(user,buffer)==0)
         {
             printf("\n\n\n\t\t\tLogin Successful");
             fclose(fptr);
